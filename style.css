@@ -1,0 +1,519 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================
+   DASHBOARD CARDS
+========================== */
+
+.dashboard-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+  color: white;
+}
+
+.dashboard-card:nth-child(1) {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.dashboard-card:nth-child(2) {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.dashboard-card:nth-child(3) {
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-card .card-body {
+  padding: 25px;
+}
+
+.dashboard-card h5 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.dashboard-card h2 {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+/* ==========================
+   MAIN CARD
+========================== */
+
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+.card-header {
+  padding: 18px 25px;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.btn {
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+#searchEmployee {
+  border-radius: 10px;
+  height: 48px;
+  border: 1px solid #ced4da;
+}
+
+#searchEmployee:focus {
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.25);
+}
+
+/* ==========================
+   TABLE
+========================== */
+
+.table {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table thead {
+  vertical-align: middle;
+}
+
+.table th {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.table tbody tr:hover {
+  background: #eef5ff;
+  transition: 0.2s;
+}
+
+/* Employee Image Preview */
+
+.employee-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0d6efd;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ==============================
+   EMPLOYEE MANAGER UI POLISH
+================================ */
+
+/* Overall Page */
+body {
+  background: #f4f6fb;
+  font-family: "Poppins", sans-serif;
+  color: #263238;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, #172554, #2563eb) !important;
+  padding: 15px 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Form Inputs */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  padding: 10px 12px;
+  border: 1px solid #dce2ec;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* Modal */
+.modal-content {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  background: #f8faff;
+  border-bottom: 1px solid #edf0f5;
+}
+
+/* Employee Photo */
+.employee-preview {
+  border: 3px solid #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+/* Smooth Page Appearance */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Dashboard Cards */
+
+.dashboard-card {
+  color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 155px;
+  transition: all 0.3s ease;
+}
+
+.employee-card {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.department-card {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+.salary-card {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.dashboard-card .card-body {
+  padding: 25px;
+}
+
+.dashboard-card h6 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.dashboard-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dashboard-card small {
+  opacity: 0.85;
+  font-size: 12px;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-icon {
+  width: 58px;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+}
+
+/* Dashboard Individual Card Colors */
+
+.dashboard-card.employee-card {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  color: #ffffff !important;
+}
+
+.dashboard-card.department-card {
+  background: linear-gradient(135deg, #059669, #047857) !important;
+  color: #ffffff !important;
+}
+
+.dashboard-card.salary-card {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6) !important;
+  color: #ffffff !important;
+}
+
+/* ==============================
+   EMPLOYEE TABLE POLISH
+================================ */
+
+/* Table Container */
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  background: #ffffff;
+}
+
+/* Main Table */
+.table {
+  margin-bottom: 0;
+  min-width: 950px;
+  border-color: #e5e7eb;
+}
+
+/* Table Header */
+.table thead th {
+  background: #172554 !important;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 16px 12px;
+  text-align: center;
+  white-space: nowrap;
+  border-color: #374151;
+}
+
+/* Table Body */
+.table tbody td {
+  padding: 14px 12px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Row Hover */
+.table-hover tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #eff6ff;
+}
+
+/* Employee Profile Images */
+#employeeTable img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+}
+
+/* Action Buttons */
+#employeeTable .btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 7px;
+  margin: 2px;
+}
+
+/* Edit Button */
+#employeeTable .btn-warning {
+  background: #fbbf24;
+  border-color: #fbbf24;
+  color: #172554;
+}
+
+/* Delete Button */
+#employeeTable .btn-danger {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+/* ==============================
+   EMPLOYEE TABLE POLISH
+================================ */
+
+/* Table Container */
+.table-responsive {
+  border-radius: 12px;
+  overflow-x: auto;
+  background: #ffffff;
+}
+
+/* Main Table */
+.table {
+  margin-bottom: 0;
+  min-width: 950px;
+  border-color: #e5e7eb;
+}
+
+/* Table Header */
+.table thead th {
+  background: #172554 !important;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 16px 12px;
+  text-align: center;
+  white-space: nowrap;
+  border-color: #374151;
+}
+
+/* Table Body */
+.table tbody td {
+  padding: 14px 12px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Row Hover */
+.table-hover tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #eff6ff;
+}
+
+/* Employee Profile Images */
+#employeeTable img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+}
+
+/* Action Buttons */
+#employeeTable .btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 7px;
+  margin: 2px;
+}
+
+/* Edit Button */
+#employeeTable .btn-warning {
+  background: #fbbf24;
+  border-color: #fbbf24;
+  color: #172554;
+}
+
+/* Delete Button */
+#employeeTable .btn-danger {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+/* Table Responsive */
+@media (max-width: 768px) {
+  .table-responsive {
+    border-radius: 8px;
+  }
+
+  .table tbody td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+
+.table tbody tr:hover {
+  background: #f5f8ff;
+
+  transition: 0.3s;
+}
+
+.table .container .card-body {
+  cursor: pointer;
+}
