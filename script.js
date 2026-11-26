@@ -60,31 +60,38 @@ function saveEmployee() {
 		image
 	};
 
-	// 4. Add or Update employee
-	if (editIndex === -1) {
+	// Check Add or Update
+	const isNewEmployee = (editIndex === -1);
+
+	if (isNewEmployee) {
 		employees.push(employee);
 	} else {
 		employees[editIndex] = employee;
 		editIndex = -1;
 	}
 
-	// 5. Save data in LocalStorage
+	// Save
 	saveToLocalStorage();
 
-	// 6. Update table and dashboard
+	// Refresh UI
 	displayEmployees();
 	updateDashboard();
 
-	// 7. Clear form and close modal
+	// Toast
+	if (isNewEmployee) {
+		showToast("Employee added successfully!", "success");
+	} else {
+		showToast("Employee updated successfully!", "primary");
+	}
+
+	// Clear form
 	clearForm();
 	employeeModal.hide();
 	selectedImage = "";
 
 	imageInput.value = "";
-
 	imagePreview.src = "";
 	imagePreview.style.display = "none";
-
 	imageError.innerText = "";
 }
 
@@ -99,6 +106,24 @@ function clearForm() {
 	editIndex = -1;
 
 	document.getElementById("modalTitle").innerHTML = "Add Employee";
+
+}
+
+function deleteEmployee(index) {
+
+	if (confirm("Are you sure you want to delete this employee?")) {
+
+		employees.splice(index, 1);
+
+		saveToLocalStorage();
+
+		displayEmployees();
+
+		updateDashboard();
+
+		showToast("Employee deleted successfully!", "danger");
+
+	}
 
 }
 
@@ -596,3 +621,4 @@ function exportExcel() {
 
 	XLSX.writeFile(workbook, "Employee_List.xlsx");
 }
+
