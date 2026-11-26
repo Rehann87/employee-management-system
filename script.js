@@ -109,23 +109,6 @@ function clearForm() {
 
 }
 
-function deleteEmployee(index) {
-
-	if (confirm("Are you sure you want to delete this employee?")) {
-
-		employees.splice(index, 1);
-
-		saveToLocalStorage();
-
-		displayEmployees();
-
-		updateDashboard();
-
-		showToast("Employee deleted successfully!", "danger");
-
-	}
-
-}
 
 function updateDashboard() {
 
@@ -219,18 +202,19 @@ function displayEmployees(employeeList = employees) {
 
 function deleteEmployee(index) {
 
-	if (confirm("Are you sure you want to delete this employee?")) {
+    if (!confirm("Are you sure you want to delete this employee?")) {
+        return;
+    }
 
-		employees.splice(index, 1);
+    employees.splice(index, 1);
 
-		saveToLocalStorage();
+    saveToLocalStorage();
 
-		displayEmployees();
+    displayEmployees();
 
-		updateDashboard();
+    updateDashboard();
 
-	}
-
+    showToast("Employee deleted successfully!", "danger");
 }
 
 function editEmployee(index) {
@@ -370,73 +354,70 @@ function sortEmployeeSalary() {
 
 function validateEmployeeForm() {
 
-	const fields = [
-		"name",
-		"email",
-		"mobile",
-		"department",
-		"salary",
-		"joiningDate",
-		"address"
-	];
+    let isValid = true;
 
-	// Clear previous error messages
-	fields.forEach(field => {
-		const errorElement = document.getElementById(field + "Error");
+    // Get Input Fields
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const mobile = document.getElementById("mobile");
+    const department = document.getElementById("department");
+    const salary = document.getElementById("salary");
+    const joiningDate = document.getElementById("joiningDate");
+    const address = document.getElementById("address");
 
-		if (errorElement) {
-			errorElement.innerText = "";
-		}
-	});
+    // Clear Previous Errors
+    document.querySelectorAll(".text-danger").forEach(error => {
+        error.innerText = "";
+    });
 
-	const name = document.getElementById("name").value.trim();
-	const email = document.getElementById("email").value.trim();
-	const mobile = document.getElementById("mobile").value.trim();
-	const department = document.getElementById("department").value;
-	const salary = document.getElementById("salary").value;
-	const joiningDate = document.getElementById("joiningDate").value;
-	const address = document.getElementById("address").value.trim();
+    function showError(fieldId, message) {
+        const error = document.getElementById(fieldId + "Error");
+        if (error) {
+            error.innerText = message;
+        }
+        isValid = false;
+    }
 
-	let isValid = true;
+    // Name
+    if (!name.value.trim()) {
+        showError("name", "Name is required.");
+    }
 
-	function showError(field, message) {
-		document.getElementById(field + "Error").innerText = message;
-		isValid = false;
-	}
+    // Email
+    if (!email.value.trim()) {
+      showError("email", "Email is required.");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        showError("email", "Enter a valid email.");
+    }
 
-	if (name === "") {
-		showError("name", "Name is required.");
-	}
+    // Mobile
+    if (!mobile.value.trim()) {
+        showError("mobile", "Mobile number is required.");
+    } else if (!/^[6-9]\d{9}$/.test(mobile.value.trim())) {
+        showError("mobile", "Enter a valid 10-digit mobile number.");
+    }
 
-	if (email === "") {
-		showError("email", "Email is required.");
-	} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-		showError("email", "Enter a valid email address.");
-	}
+    // Department
+    if (department.value === "") {
+        showError("department", "Please select a department.");
+    }
 
-	if (mobile === "") {
-		showError("mobile", "Mobile number is required.");
-	} else if (!/^[6-9]\d{9}$/.test(mobile)) {
-		showError("mobile", "Enter a valid 10-digit mobile number.");
-	}
+    // Salary
+    if (salary.value === "" || Number(salary.value) <= 0) {
+        showError("salary", "Enter a valid salary.");
+    }
 
-	if (department === "") {
-		showError("department", "Please select a department.");
-	}
+    // Joining Date
+    if (joiningDate.value === "") {
+        showError("joiningDate", "Joining date is required.");
+    }
 
-	if (salary === "" || Number(salary) <= 0) {
-		showError("salary", "Enter a valid salary.");
-	}
+    // Address
+    if (!address.value.trim()) {
+        showError("address", "Address is required.");
+    }
 
-	if (joiningDate === "") {
-		showError("joiningDate", "Joining date is required.");
-	}
-
-	if (address === "") {
-		showError("address", "Address is required.");
-	}
-
-	return isValid;
+    return isValid;
 }
 
 
@@ -535,18 +516,7 @@ function filterDepartment() {
 	displayEmployees(filteredEmployees);
 }
 
-function deleteEmployee(index) {
 
-	if (!confirm("Are you sure you want to delete this employee?")) {
-		return;
-	}
-
-	employees.splice(index, 1);
-
-	saveToLocalStorage();
-	displayEmployees();
-	updateDashboard();
-}
 
 function exportPDF() {
 
@@ -622,3 +592,17 @@ function exportExcel() {
 	XLSX.writeFile(workbook, "Employee_List.xlsx");
 }
 
+function showToast(message, type = "success") {
+    const toastElement = document.getElementById("liveToast");
+    const toastMessage = document.getElementById("toastMessage");
+
+    toastMessage.textContent = message;
+
+    toastElement.className = "toast align-items-center border-0";
+    toastElement.classList.add(`text-bg-${type}`);
+
+    const toast = bootstrap.Toast.getOrCreateInstance(toastElement);
+    toast.show();
+}
+
+console.log("END OF SCRIPT");
