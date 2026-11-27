@@ -378,7 +378,7 @@ function validateEmployeeForm() {
         isValid = false;
     }
 
-    // Name
+
     if (!name.value.trim()) {
         showError("name", "Name is required.");
     }
